@@ -27,27 +27,6 @@ class handle_data():
             re.append(tuple(a))
         return re
 
-    def text_create(self,name, df):
-        full_path = name + '.txt'
-        file = open(full_path, 'w')
-        for n in range(len(df)):
-            a=df.iloc[n]
-            a=tuple(a)
-            a=str(a)+ '\n'
-            file.write(a)
-        file.close()
-
-    def update_data(self,curosr,conn):
-        #写到数据所在的文件夹即可
-        sql = '''
-                 create external table 0001_test
-                 (id  string, 
-                  name string,value string) 
-              '''
-        print(sql)
-        curosr.execute(sql)
-        conn.close()
-
     def main(self,df):
         start = datetime.now()
         print(start)
